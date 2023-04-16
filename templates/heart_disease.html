@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Heart Disease Model</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </head>
+    <style>
+        .form
+        {
+            padding: 15px;
+            width: 350px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        div.module
+        {
+            padding: 5px;
+        }
+
+        div.submit
+        {
+            padding: 15px;
+        }
+    </style>
+    <body>
+        <form class="form" method="POST">
+            <div class="module">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="bmi">BMI</span>
+                  </div>
+                  <input name="bmi" type="text" class="form-control" placeholder="BMI" aria-label="bmi" aria-describedby="bmi">
+                </div>
+            </div>
+
+            <div class="module">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" name="smoking" id="smoking">
+                  <label class="form-check-label" for="smoking">
+                    Smoking
+                  </label>
+                </div>
+            </div>
+
+            <div class="module">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" name="alcoholDrinking" id="alcoholDrinking">
+                  <label class="form-check-label" for="alcoholDrinking">
+                    Alcohol Drinking
+                  </label>
+                </div>
+            </div>
+
+            <div class="module">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" name="stroke" id="stroke">
+                  <label class="form-check-label" for="stroke">
+                    Stroke
+                  </label>
+                </div>
+            </div>
+
+            <div class="module">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="physicalHealth">Physical Health</span>
+                  </div>
+                  <input name="physicalHealth" type="text" class="form-control" placeholder="Physical Health" aria-label="physicalHealth" aria-describedby="physicalHealth">
+                </div>
+            </div>
+
+            <div class="module">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="mentalHealth">Mental Health</span>
+                  </div>
+                  <input name="mentalHealth" type="text" class="form-control" placeholder="Mental Health" aria-label="mentalHealth" aria-describedby="mentalHealth">
+                </div>
+            </div>
+
+
+            <div class="module">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" name="difficultyWalking" id="difficultyWalking">
+                  <label class="form-check-label" for="difficultyWalking">
+                    Difficulty Walking
+                  </label>
+                </div>
+            </div>
+
+            <div class="module">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="sex">Sex</label>
+                  </div>
+                  <select name="sex" class="custom-select" id="sex">
+                    <option selected>Choose...</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                  </select>
+                </div>
+            </div>
+
+
+
+            <div class="module">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="ageCategory">Age Category</label>
+                  </div>
+                  <select name="ageCategory" class="custom-select" id="ageCategory">
+                    <option selected>Choose...</option>
+                    <option value="18-24">18-24</option>
+                    <option value="25-29">25-29</option>
+                    <option value="30-34">30-34</option>
+                    <option value="35-39">35-39</option>
+                    <option value="40-44">40-44</option>
+                    <option value="45-49">45-49</option>
+                    <option value="50-54">50-54</option>
+                    <option value="55-59">55-59</option>
+                    <option value="60-64">60-64</option>
+                    <option value="65-69">65-69</option>
+                    <option value="70-74">70-74</option>
+                    <option value="75-79">75-79</option>
+                    <option value="80 or older">80 or older</option>
+                  </select>
+                </div>
+            </div>
+
+
+            <div class="module">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="race">Race</label>
+                  </div>
+                  <select name="race" class="custom-select" id="race">
+                    <option selected>Choose...</option>
+                    <option value="White">White</option>
+                    <option value="Black">Black</option>
+                    <option value="Asian">Asian</option>
+                    <option value="American Indian/Alaskan Native">American Indian / Alaskan Native</option>
+                    <option value="Hispanic">Hispanic</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+            </div>
+
+            <div class="module">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="diabetic">Diabetic</label>
+                  </div>
+                  <select name="diabetic" class="custom-select" id="diabetic">
+                    <option selected>Choose...</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="No, borderline diabetes">No, borderline diabetes</option>
+                    <option value="Yes (during pregnancy)">Yes (during pregnancy)</option>
+                  </select>
+                </div>
+            </div>
+
+            <div class="module">
+                <div class="form-check">
+                  <input name="physicalActivity" class="form-check-input" type="checkbox" name="physicalActivity" id="physicalActivity">
+                  <label class="form-check-label" for="physicalActivity">
+                    Physical Activity
+                  </label>
+                </div>
+            </div>
+
+
+            <div class="module">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="genHealth">General Health</label>
+                  </div>
+                  <select name="genHealth" class="custom-select" id="genHealth">
+                    <option selected>Choose...</option>
+                    <option value="Male">Very Good</option>
+                    <option value="Female">Good</option>
+                    <option value="Male">Excellent</option>
+                    <option value="Female">Fair</option>
+                    <option value="Female">Poor</option>
+                  </select>
+                </div>
+            </div>
+
+            <div class="module">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="sleepTime">Sleep Time</span>
+                  </div>
+                  <input name="sleepTime" type="text" class="form-control" placeholder="SleepTime" aria-label="sleepTime" aria-describedby="sleepTime">
+                </div>
+            </div>
+
+
+            <div class="module">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" name="asthma" id="asthma">
+                  <label class="form-check-label" for="asthma">
+                    Asthma
+                  </label>
+                </div>
+            </div>
+
+            <div class="module">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" name="kidneyDisease" id="kidneyDisease">
+                  <label class="form-check-label" for="kidneyDisease">
+                    Kideney Disease
+                  </label>
+                </div>
+            </div>
+
+            <div class="module">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" name="skinCancer" id="skinCancer">
+                  <label class="form-check-label" for="skinCancer">
+                    Skin Cancer
+                  </label>
+                </div>
+            </div>
+
+            <div class="submit">
+                <button type="submit" class="btn btn-warning">Determine Heart Disease</button>
+            </div>
+        </form>
+    </body>
+</html>
