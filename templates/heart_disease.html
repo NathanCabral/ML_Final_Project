@@ -100,8 +100,8 @@
                   </div>
                   <select name="sex" class="custom-select" id="sex">
                     <option selected>Choose...</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
+                    <option value="0">Male</option>
+                    <option value="1">Female</option>
                   </select>
                 </div>
             </div>
@@ -115,19 +115,19 @@
                   </div>
                   <select name="ageCategory" class="custom-select" id="ageCategory">
                     <option selected>Choose...</option>
-                    <option value="18-24">18-24</option>
-                    <option value="25-29">25-29</option>
-                    <option value="30-34">30-34</option>
-                    <option value="35-39">35-39</option>
-                    <option value="40-44">40-44</option>
-                    <option value="45-49">45-49</option>
-                    <option value="50-54">50-54</option>
-                    <option value="55-59">55-59</option>
-                    <option value="60-64">60-64</option>
-                    <option value="65-69">65-69</option>
-                    <option value="70-74">70-74</option>
-                    <option value="75-79">75-79</option>
-                    <option value="80 or older">80 or older</option>
+                    <option value="0">18-24</option>
+                    <option value="1">25-29</option>
+                    <option value="2">30-34</option>
+                    <option value="3">35-39</option>
+                    <option value="4">40-44</option>
+                    <option value="5">45-49</option>
+                    <option value="6">50-54</option>
+                    <option value="7">55-59</option>
+                    <option value="8">60-64</option>
+                    <option value="9">65-69</option>
+                    <option value="10">70-74</option>
+                    <option value="11">75-79</option>
+                    <option value="12">80 or older</option>
                   </select>
                 </div>
             </div>
@@ -140,12 +140,12 @@
                   </div>
                   <select name="race" class="custom-select" id="race">
                     <option selected>Choose...</option>
-                    <option value="White">White</option>
-                    <option value="Black">Black</option>
-                    <option value="Asian">Asian</option>
-                    <option value="American Indian/Alaskan Native">American Indian / Alaskan Native</option>
-                    <option value="Hispanic">Hispanic</option>
-                    <option value="Other">Other</option>
+                    <option value="0">White</option>
+                    <option value="1">Black</option>
+                    <option value="2">Asian</option>
+                    <option value="3">American Indian / Alaskan Native</option>
+                    <option value="4">Hispanic</option>
+                    <option value="5">Other</option>
                   </select>
                 </div>
             </div>
@@ -157,10 +157,10 @@
                   </div>
                   <select name="diabetic" class="custom-select" id="diabetic">
                     <option selected>Choose...</option>
-                    <option value="Yes">Yes</option>
-                    <option value="No">No</option>
-                    <option value="No, borderline diabetes">No, borderline diabetes</option>
-                    <option value="Yes (during pregnancy)">Yes (during pregnancy)</option>
+                    <option value="0">Yes</option>
+                    <option value="1">No</option>
+                    <option value="2">No, borderline diabetes</option>
+                    <option value="3">Yes (during pregnancy)</option>
                   </select>
                 </div>
             </div>
@@ -182,11 +182,11 @@
                   </div>
                   <select name="genHealth" class="custom-select" id="genHealth">
                     <option selected>Choose...</option>
-                    <option value="Male">Very Good</option>
-                    <option value="Female">Good</option>
-                    <option value="Male">Excellent</option>
-                    <option value="Female">Fair</option>
-                    <option value="Female">Poor</option>
+                    <option value="0">Very Good</option>
+                    <option value="2">Good</option>
+                    <option value="4">Excellent</option>
+                    <option value="1">Fair</option>
+                    <option value="3">Poor</option>
                   </select>
                 </div>
             </div>
@@ -231,6 +231,10 @@
             <div class="submit">
                 <button type="submit" class="btn btn-warning">Determine Heart Disease</button>
             </div>
+
+            {%if percentage %}
+            <strong>The chance that you have heart disease is: {{ percentage }}</strong>
+            {% endif %}
         </form>
     </body>
 </html>

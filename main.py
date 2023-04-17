@@ -73,15 +73,20 @@ def predict():
                 skinCancer = 0
 
 
-        input_data = (bmi, smoking, alcoholDrinking, stroke, physicalHealth, mentalHealth, difficultyWalking, sex, ageCategory, race, diabetic, physicalActivity, ageCategory, race, asthma, kidneyDisease, skinCancer)
+        input_data = [[int(bmi), int(smoking), int(alcoholDrinking), int(stroke), int(physicalHealth), int(mentalHealth), int(difficultyWalking), int(sex), int(ageCategory), int(race), int(diabetic), int(physicalActivity),int(ageCategory), int(race), int(asthma), int(kidneyDisease), int(skinCancer)]]
+
+        print(input_data)
 
         tensor_data = torch.tensor(input_data, dtype=torch.float32)
 
-        #state_dict = torch.load('model.pth')
 
-        model = torch.load('model.pth')
-
+        model = torch.jit.load('model_scripted.pt')
         model.eval()
+
+        with torch.no_grad():
+            output = model(tensor_data)
+
+        return render_template("heart_disease.html", percentage = (output[0][1].item() * 100))
 
     return render_template("heart_disease.html")
 
