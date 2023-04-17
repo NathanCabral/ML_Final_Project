@@ -86,7 +86,7 @@ def predict():
         with torch.no_grad():
             output = model(tensor_data)
 
-        return render_template("heart_disease.html", percentage = (output[0][1].item() * 100))
+        return render_template("heart_disease.html", percentage = round((output[0][1].item() * 100), 2))
 
     return render_template("heart_disease.html")
 

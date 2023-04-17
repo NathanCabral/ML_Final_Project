@@ -1,5 +1,41 @@
+body {
+    font-family: Verdana, sans-serif;
+}
+.header {
+    background-color: #f59090;
+    text-align: center;
+    padding: 20px;
+}
 .form
 {
     padding: 20px;
     width: 200px;
+}
+.column {
+    float: left;
+    padding: 10px;
+}
+.left {
+    width: 30%;
+}
+
+.right {
+    width: 70%;
+}
+.header h1{
+    font-weight: 700;
+}
+.header img {
+    float: left;
+    width: 200px;
+    height: 100px;
+}
+
+.mainContent {
+    padding-top: 100px;
+    padding: 200px;
+}
+.mainContent p {
+    text-align: center;
+    word-wrap: normal;
 }
